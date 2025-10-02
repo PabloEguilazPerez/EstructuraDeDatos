@@ -45,14 +45,12 @@ public class Main {
 		System.out.println("Size: " + sortArr.size() + ", Capacity: " + sortArr.capacity());
 		sortArr.add(1);
 		System.out.println("Size: " + sortArr.size() + ", Capacity: " + sortArr.capacity());
-		System.out.println("Valores: " + sortArr.toString());
-		
-		
+		System.out.println("Vsalores: " + sortArr.toString());
+			
 		System.out.println("--------------------------------------");
 		System.out.println("Sorted List pasando comparador");
 		System.out.println("--------------------------------------");
-		
-		
+				
 		Comparator<Integer> com = (e1, e2) -> {
 			return e2 - e1;
 		};
