@@ -32,7 +32,7 @@ public class TestSortedList {
 	@Test
 	public void testComparator() {
 		Comparator<Character> comparator = (c1, c2) -> c2.compareTo(c1);
-		
+		 
 		List<Character> l1 = new SortedList<Character>(comparator);
 		l1.add('c');
 		l1.add('v');

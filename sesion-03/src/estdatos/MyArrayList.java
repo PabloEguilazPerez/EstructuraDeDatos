@@ -21,8 +21,7 @@ public class MyArrayList<E> extends AbstractList<E> {
 		this(10);
 	}
 	
-	@SuppressWarnings("unchecked")
-	public MyArrayList(Collection<? extends E> c) {
+	public MyArrayList(Collection<E> c) {
 		this.datos = (E[]) new Object[c.size()];
 		this.size = 0;
 		addAll(c);
