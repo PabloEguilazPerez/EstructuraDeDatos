@@ -25,11 +25,11 @@ public class Main {
 		
 		arr = new MyArrayList<>(2);
 		System.out.println("Size: " + arr.size() + ", Capacity: " + arr.capacity());
-		arr.add(2);
-		System.out.println("Size: " + arr.size() + ", Capacity: " + arr.capacity());
 		arr.add(3);
 		System.out.println("Size: " + arr.size() + ", Capacity: " + arr.capacity());
 		arr.add(1);
+		System.out.println("Size: " + arr.size() + ", Capacity: " + arr.capacity());
+		arr.add(2);
 		System.out.println("Size: " + arr.size() + ", Capacity: " + arr.capacity());
 		System.out.println("Valores: " + arr.toString());
 		
@@ -64,6 +64,8 @@ public class Main {
 		sortArr.add(1);
 		System.out.println("Size: " + sortArr.size() + ", Capacity: " + sortArr.capacity());
 		System.out.println("Valores: " + sortArr.toString());
+		
+		new MyArrayList<>(-2);
 		
 	}
 	

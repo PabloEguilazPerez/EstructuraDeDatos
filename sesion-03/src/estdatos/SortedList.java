@@ -38,6 +38,12 @@ public class SortedList<E> extends MyArrayList<E> {
     }
 	
 	@Override
+	public E set(int index, E element) {
+		add(element);
+		return element;
+	}
+	
+	@Override
     public void add(int index, E element) {
         add(element);
     }
