@@ -25,6 +25,11 @@ public class SortedList<E> extends MyArrayList<E> {
 		this.comparator = comparator;
 	}
 	
+	public SortedList(int initialCapacity, Comparator<E> comparator) {
+		this(initialCapacity);
+		this.comparator = comparator;
+	}
+	
 	@Override
     public boolean add(E e) {
         int index = findInsertIndex(e);

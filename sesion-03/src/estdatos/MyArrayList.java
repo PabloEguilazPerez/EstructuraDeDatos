@@ -11,7 +11,7 @@ public class MyArrayList<E> extends AbstractList<E> {
 	
 	public MyArrayList(int initialCapacity) {
 		if (initialCapacity < 0) {
-			throw new IllegalArgumentException("Capacidad negativa: " + initialCapacity);
+			throw new IllegalArgumentException("capacidad negativa: " + initialCapacity);
 		}
 		this.datos = (E[]) new Object[initialCapacity];
 		this.size = 0;
@@ -34,13 +34,13 @@ public class MyArrayList<E> extends AbstractList<E> {
 
 	@Override
 	public E get(int index) {
-		checkIndex(index);
+		comprobarIndex(index);
 		return datos[index];
 	}
 
 	@Override
 	public E set(int index, E element) {
-		checkIndex(index);
+		comprobarIndex(index);
 		E oldValue = datos[index];
 		datos[index] = element;
 		return oldValue;
@@ -53,10 +53,11 @@ public class MyArrayList<E> extends AbstractList<E> {
 		return true;
 	}
 	
+	
 	@Override
 	public void add(int index, E element) {
 		if (index < 0 || index > size) {
-			throw new IndexOutOfBoundsException("Índice: " + index + ", tamaño: " + size);
+			throw new IndexOutOfBoundsException("ondice: " + index + ", tamaño: " + size);
 		}
 		ensureCapacity(size + 1);
 		System.arraycopy(datos, index, datos, index + 1, size - index);
@@ -66,7 +67,7 @@ public class MyArrayList<E> extends AbstractList<E> {
 	
 	@Override
 	public E remove(int index) {
-		checkIndex(index);
+		comprobarIndex(index);
 		E oldValue = datos[index];
 		int numMoved = size - index - 1;
 		if (numMoved > 0) {
@@ -80,19 +81,20 @@ public class MyArrayList<E> extends AbstractList<E> {
 		return datos.length;
 	}
 
-	private void ensureCapacity(int minCapacity) {
-		if (minCapacity > capacity()) {
-			int newCapacity = capacity() * 2;
-			if (newCapacity < minCapacity) {
-				newCapacity = minCapacity;
+	private void ensureCapacity(int capacidadMinima) {
+		if (capacidadMinima > capacity()) {
+			int capacidadNueva = capacity() * 2;
+			if (capacidadNueva < capacidadMinima) {
+				capacidadNueva = capacidadMinima;
 			}
-			datos = Arrays.copyOf(datos, newCapacity);
+			System.out.println("Aumento capacidad de " + capacity() + " a " + capacidadNueva);
+			datos = Arrays.copyOf(datos, capacidadNueva);
 		}
 	}
 
-	private void checkIndex(int index) {
+	private void comprobarIndex(int index) {
 		if (index < 0 || index >= size) {
-			throw new IndexOutOfBoundsException("Índice: " + index + ", tamaño: " + size);
+			throw new IndexOutOfBoundsException("indice: " + index + ", tamaño: " + size);
 		}
 	}
 	
