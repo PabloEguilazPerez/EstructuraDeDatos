@@ -17,6 +17,7 @@ public class Main {
 		l1.add('d');
 		l1.add('e');
 		System.out.println(l1.size());
+		System.out.println("L1: " + l1.toString());
 
 		SList<Character> l2 = new SList<Character>();
 
@@ -26,10 +27,13 @@ public class Main {
 		l2.add('d');
 		l2.add('e');
 		
+		System.out.println("L2: " + l2.toString());
+		
 		System.out.println(l2.size());
 		
 		System.out.println(l1.equals(l2));
 		l1.remove('a');
+		System.out.println("L1: " + l1.toString());
 		System.out.println(l1.equals(l2));
 		
 
