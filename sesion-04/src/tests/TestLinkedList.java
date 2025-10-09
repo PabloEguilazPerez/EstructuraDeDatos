@@ -11,7 +11,7 @@ import org.junit.Test;
 import estdatos.SList;
 import estdatos.IList;
 
-public class TestArrayList {
+public class TestLinkedList {
 	@Test
 	public void testConstructors() {
 		IList<Character> l1 = new SList<Character>();

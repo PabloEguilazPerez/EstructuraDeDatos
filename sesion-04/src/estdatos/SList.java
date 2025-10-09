@@ -35,7 +35,7 @@ public class SList<E> implements IList<E> {
     @Override
     public void add(int index, E e) {
         if (index < 0 || index > size) {
-            throw new IndexOutOfBoundsException("Índice fuera de rango");
+            throw new IndexOutOfBoundsException("index < 0 || index > size");
         }
 
         Node<E> newNode = new Node<>(e, null);
@@ -60,7 +60,7 @@ public class SList<E> implements IList<E> {
     @Override
     public E get(int index) {
         if (index < 0 || index >= size) {
-            throw new IndexOutOfBoundsException("Índice fuera de rango");
+            throw new IndexOutOfBoundsException("index < 0 || index >= size");
         }
 
         Node<E> current = first;
@@ -70,9 +70,10 @@ public class SList<E> implements IList<E> {
 
         return current.item;
     }
-
+    
     @Override
     public boolean remove(Object e) {
+ 
         Node<E> current = first;
         Node<E> previous = null;
 
@@ -98,7 +99,7 @@ public class SList<E> implements IList<E> {
 
         return false;
     }
-
+	
     @Override
     public Iterator<E> iterator() {
         return new Iterator<E>() {
@@ -126,20 +127,21 @@ public class SList<E> implements IList<E> {
 
     @Override
     public String toString() {
-        StringBuilder sb = new StringBuilder("[");
+        String res = "[";
         Node<E> current = first;
         while (current != null) {
-            sb.append(current.item);
-            if (current.next != null) sb.append(", ");
+            res = res + " " + current.item.toString();
             current = current.next;
         }
-        sb.append("]");
-        return sb.toString();
+        res = res + " ]";
+        return res.toString();
     }
 
     @Override
     public boolean equals(Object obj) {
+    	
         if (!(obj instanceof SList<?> other)) return false;
+        //https://docs.oracle.com/en/java/javase/17/language/pattern-matching-instanceof.html
         if (this.size != other.size) return false;
 
         Node<E> current1 = this.first;
