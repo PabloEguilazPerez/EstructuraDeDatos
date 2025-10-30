@@ -83,7 +83,7 @@ public class ListTree<E> extends AbstractTree<E> {
 			
 		}
 		
-		return itr1.hasNext() && itr2.hasNext();
+		return !itr1.hasNext() && !itr2.hasNext();
 		
 	}
 	
