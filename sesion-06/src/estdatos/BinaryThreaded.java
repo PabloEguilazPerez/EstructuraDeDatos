@@ -23,6 +23,7 @@ public class BinaryThreaded<E> extends BinaryTreeImp<E> implements Iterable<E> {
     }
 
     public BinaryThreaded(E e, BinaryTree<E> leftSubtree, BinaryTree<E> rightSubtree) {
+    	
         if (e == null) {
         	throw new NullPointerException();
         }
@@ -122,4 +123,22 @@ public class BinaryThreaded<E> extends BinaryTreeImp<E> implements Iterable<E> {
     public Iterator<E> iterator() {
         return null;
     }
+    
+    private class MyIterator implements Iterator<E> {
+        private int index = 0;
+
+        @Override
+        public boolean hasNext() {
+            return false;
+        }
+
+        @Override
+        public E next() {
+            if (!hasNext()) {
+                throw new IndexOutOfBoundsException();
+            }
+            return null;
+        }
+    }
+    
 }
