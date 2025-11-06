@@ -10,6 +10,33 @@ import java.util.NoSuchElementException;
  */
 public class BinaryThreaded<E> extends BinaryTreeImp<E> implements Iterable<E> {
 
+	private boolean isRightThread;
+	private boolean isLeftThread;
+	
+	public BinaryThreaded() {
+		super();
+		this.isRightThread = false;
+		this.isLeftThread = false;
+	}
+	
+	public BinaryThreaded(E e) {
+		super(e);
+		this.isRightThread = false;
+		this.isLeftThread = false;
+	}
+	
+	public BinaryThreaded(E e, BinaryTree<E> leftSubtree, BinaryTree<E>rightSubtree) {
+		super(e, leftSubtree, rightSubtree);
+		this.isRightThread = false;
+		this.isLeftThread = false;
+	}
+	
+	public BinaryThreaded(BinaryTree<E> bt) {
+		super(bt);
+		this.isRightThread = false;
+		this.isLeftThread = false;
+	}
+
 	/**
 	 * For a given node, finds the right-most node in subtree and threads it back to
 	 * node
@@ -70,5 +97,11 @@ public class BinaryThreaded<E> extends BinaryTreeImp<E> implements Iterable<E> {
 			current = (BinaryThreaded<E>) current.left;
 		}
 		return current;
+	}
+
+	@Override
+	public Iterator<E> iterator() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 }
