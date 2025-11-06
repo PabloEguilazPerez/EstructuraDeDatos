@@ -13,28 +13,34 @@ public class BinaryThreaded<E> extends BinaryTreeImp<E> implements Iterable<E> {
 	private boolean isRightThread;
 	private boolean isLeftThread;
 	
+	private static final BinaryThreaded<?> EMPTY = new BinaryThreaded<>();
+	
 	public BinaryThreaded() {
 		super();
-		this.isRightThread = false;
-		this.isLeftThread = false;
 	}
 	
 	public BinaryThreaded(E e) {
 		super(e);
-		this.isRightThread = false;
-		this.isLeftThread = false;
 	}
 	
-	public BinaryThreaded(E e, BinaryTree<E> leftSubtree, BinaryTree<E>rightSubtree) {
-		super(e, leftSubtree, rightSubtree);
-		this.isRightThread = false;
-		this.isLeftThread = false;
+	public BinaryThreaded(E e, BinaryTree<E> leftSubtree, BinaryTree<E> rightSubtree) {
+		super(e);
 	}
 	
 	public BinaryThreaded(BinaryTree<E> bt) {
 		super(bt);
-		this.isRightThread = false;
-		this.isLeftThread = false;
+	}
+	
+	private static <T> BinaryThreaded<T> empty() {
+	 return (BinaryThreaded<T>) EMPTY;
+	}
+	
+	public BinaryTree<E> left() {
+		return isLeftThread ? empty() : left;
+	}
+	
+	public BinaryTree<E> right() {
+		return isLeftThread ? empty() : right;
 	}
 
 	/**
