@@ -8,7 +8,8 @@ import java.util.List;
 import java.util.Set;
 
 public class ListSet<E> extends AbstractSet<E> implements Set<E> {
-    private final List<E> elements;
+	
+    private final ArrayList<E> elements;
 
     public ListSet() {
         this.elements = new ArrayList<>();

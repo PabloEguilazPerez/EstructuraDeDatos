@@ -3,7 +3,7 @@ package estdatos;
 import java.util.*;
 
 public class SortedListSet<E> extends AbstractSet<E> {
-    private final List<E> elements;
+    private final ArrayList<E> elements;
     private final Comparator<? super E> comparator;
 
     public SortedListSet() {
@@ -24,7 +24,18 @@ public class SortedListSet<E> extends AbstractSet<E> {
         }
         return false;
     }
-
+    
+    @Override
+    public boolean addAll(Collection<? extends E> c) {
+        boolean modificada = false;
+        for (E e : c) {
+            if (add(e)) {
+            	modificada = true;
+            }
+        }
+        return modificada;
+    }
+    
     @Override
     public boolean contains(Object o) {
         return Collections.binarySearch(elements, (E) o, comparator) >= 0;

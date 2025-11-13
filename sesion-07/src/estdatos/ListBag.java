@@ -2,8 +2,9 @@ package estdatos;
 
 import java.util.*;
 
-public class ListBag<E> extends AbstractCollection<E> {
-    private final List<E> elements;
+public class ListBag<E> extends ListSet<E> {
+	
+	private final ArrayList<E> elements;
 
     public ListBag() {
         this.elements = new ArrayList<>();
@@ -44,14 +45,16 @@ public class ListBag<E> extends AbstractCollection<E> {
     public int count(E e) {
         int cnt = 0;
         for (E elem : elements) {
-            if (Objects.equals(elem, e)) cnt++;
+            if (Objects.equals(elem, e)) {
+            	cnt++;
+            }
         }
         return cnt;
     }
-
 
     @Override
     public boolean contains(Object o) {
         return elements.contains(o);
     }
+    
 }
